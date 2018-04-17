@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/map';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class BarService {
 
   get value(): Observable<string> {
-    return Observable.of(true)
-      .map((val) => `${val}`);
+    return of(true).pipe(map(val => `${val}`));
   }
 
 }
